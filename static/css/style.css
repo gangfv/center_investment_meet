@@ -1,0 +1,46 @@
+* {
+    transition: 0.3s;
+}
+
+:root {
+    --base: #080717;
+    --text: #50b848;
+    --white: #e4e4e3;
+    --white-btn: #fff;
+}
+
+body {
+    margin: 0;
+    background: var(--base);
+    font-family: YS Text, Helvetica, Arial, sans-serif;;
+}
+
+a, u {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--text);
+}
+
+p {
+    color: var(--text);
+}
+
+.container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+}

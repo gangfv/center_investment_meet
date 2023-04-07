@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    container_name: meet
+    build: .
+    ports:
+      - "7777:7777"
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+
+volumes:
+  media_volume:
+  static_volume:

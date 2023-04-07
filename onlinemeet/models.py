@@ -5,15 +5,17 @@ from django.utils.text import slugify
 from datetime import timedelta
 from django.utils import timezone
 
+
 class Meeting(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)  # creator of the meeting
-    title_of_meeting = models.CharField(max_length=150)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE,
+                                verbose_name='Создатель собрания', )  # creator of the meeting
+    title_of_meeting = models.CharField(max_length=150, verbose_name='Название собрания', )
     created = models.DateTimeField(auto_now_add=True)  # the time meeting was created
     updated = models.DateTimeField(auto_now=True)  # time meeting was updated
-    duration = models.PositiveIntegerField()
-    starting_date_time = models.DateTimeField()
-    ending_date_time = models.DateTimeField()
-    unique_meeting_name = models.TextField(blank=True, null=True)
+    duration = models.PositiveIntegerField(verbose_name='Продолжительность')
+    starting_date_time = models.DateTimeField(verbose_name='Начало')
+    ending_date_time = models.DateTimeField(verbose_name='Конец')
+    unique_meeting_name = models.TextField(blank=True, null=True, verbose_name='Уникальное название собрания')
 
     def __str__(self):
         return '%s: %s' % (self.creator, self.title_of_meeting)
@@ -36,7 +38,6 @@ class Meeting(models.Model):
         """
         return (timezone.now() >= self.starting_date_time)
 
-
     @property
     def after_meeting(self):
         """
@@ -44,4 +45,6 @@ class Meeting(models.Model):
 
         return (timezone.now() >= self.ending_date_time)
 
-    
+    class Meta:
+        verbose_name = 'Собрание'
+        verbose_name_plural = 'Собрания'

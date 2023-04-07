@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,10 +7,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LIVE MEETING PAGE</title>
+    <title>Поддержка Банк Центр Инвест</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<h2>Title: {{meeting.title_of_meeting}}</h2>
                 <div id="meet">
 
                 </div>
@@ -18,8 +20,8 @@
     const domain = 'meet.jit.si';
     const options = {
         roomName: 'JitsiMeetAPIExample',
-        width: 1000,
-        height: 600,
+        width: 1920,
+        height: 1080,
         parentNode: document.querySelector('#meet'),
         lang: 'en',  // default language, change the language to english
         configOverwrite: {
